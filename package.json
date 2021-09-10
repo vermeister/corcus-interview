@@ -1,0 +1,21 @@
+{
+  "name": "data-dashboard",
+  "version": "1.0.0",
+  "description": "Interview take home to create data dashboard",
+  "main": "index.js",
+  "scripts": {
+    "db:restore": "PGPASSWORD=sasdfasdf psql -U postgres -h 127.0.0.1 -p 5432 -d postgres -c \"DROP DATABASE \"interviewdb\";\" && PGPASSWORD=sasdfasdf psql -U postgres -h 127.0.0.1 -p 5432 -d postgres -c \"CREATE DATABASE \"interviewdb\";\" && PGPASSWORD=sasdfasdf pg_restore -h 127.0.0.1 -p 5432 -U postgres --dbname=interviewdb --no-privileges --no-owner --role=postgres ./db/data.dump",
+    "db:create": "sequelize-cli db:create",
+    "db:drop": "sequelize-cli db:drop",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  }
+}
